@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 22:40:37 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/12 03:00:27 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 05:52:09 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,17 +29,16 @@ void	ft_list_remove_if(t_data **begin_list, char *data_ref)
 	prev = NULL;
 	while (curr != NULL)
 	{
-		if (ft_strncmp(curr->content, data_ref, strlenhtal(curr->content)) == 0)
+		if (ft_strncmp(curr->content, data_ref, strlenhtal(curr->content)) == 0
+			&& ft_strlen(data_ref) == strlenhtal(curr->content))
 		{
 			if (prev == NULL)
 				*begin_list = curr->next;
 			else
 				prev->next = curr->next;
 			(free(curr->content), free(curr));
-			if (prev == NULL)
-				curr = *begin_list;
-			else
-				curr = prev->next;
+			(prev == NULL) && (curr = *begin_list);
+			(prev != NULL) && (curr = prev->next);
 		}
 		else
 		{
@@ -90,10 +89,10 @@ int	ft_unset(t_shell *p, t_data **data)
 		tmp = (*data);
 		while ((tmp))
 		{
-			if (strlenhtal(tmp->content) == ft_strlen(p->cmd[i])
-				&& ft_strncmp(tmp->content, p->cmd[i],
-					ft_strlen(p->cmd[i])) == 0)
+			if (ft_strncmp(tmp->content, p->cmd[i], ft_strlen(p->cmd[i])) == 0)
+			{
 				ft_list_remove_if(data, p->cmd[i]);
+			}
 			tmp = tmp->next;
 		}
 		i++;

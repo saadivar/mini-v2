@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 00:39:42 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/09 22:48:33 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 05:15:08 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	communpartexec(t_shell *shellcmd, t_data **envp, t_info *info)
 
 	str = NULL;
 	if (!(access(shellcmd->cmd[0], X_OK)))
-		info->strfinal = strdup(shellcmd->cmd[0]);
+		info->strfinal = ft_strdup(shellcmd->cmd[0]);
 	else
 	{
 		str = getpath(envp);

@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 09:58:00 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/07 10:07:30 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 06:03:20 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	checkchar1(char *s)
 	while (s[i])
 	{
 		if (!(ft_isalpha(s[i])) && !(ft_isdigit(s[i])) && s[i] != '_'
-			&& ((s[i] == '=') && strlen(s) != 1))
+			&& ((s[i] == '=') && ft_strlen(s) != 1))
 			return (1);
 		i++;
 	}
@@ -69,7 +69,8 @@ int	checkingifexist(char *s, t_data **data)
 			len = ft_strlen(s);
 		else
 			len = ft_strlen(str);
-		if (strncmp(tmp->content, s, len) == 0)
+		if (ft_strncmp(tmp->content, s, len) == 0
+			&& strlenhtal(tmp->content) == ft_strlen(s))
 		{
 			free(str);
 			return (0);
@@ -87,7 +88,7 @@ int	checkingifexist1(char *s, t_data **data, int l)
 	tmp = *data;
 	while (tmp)
 	{
-		if (strncmp(tmp->content, s, l) == 0)
+		if (ft_strncmp(tmp->content, s, l) == 0)
 			return (0);
 		tmp = tmp->next;
 	}
@@ -113,7 +114,7 @@ int	checknotexist(char *s, t_data **data, int len)
 			else
 				len = ft_strlen(str);
 		}
-		if (strncmp(tmp->content, s, len) == 0)
+		if (ft_strncmp(tmp->content, s, len) == 0)
 			return (free_export(str, 0));
 		tmp = tmp->next;
 	}

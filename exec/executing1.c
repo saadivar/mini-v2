@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 06:34:05 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/11 05:52:37 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 05:20:59 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 int	checkbuilins(char *s)
 {
-	if (strcmp(s, "echo") == 0 || strcmp(s, "cd") == 0 || strcmp(s,
-			"export") == 0 || strcmp(s, "unset") == 0 || strcmp(s, "exit") == 0
-		|| strcmp(s, "env") == 0 || strcmp(s, "pwd") == 0 || strcmp(s,
-			"CD") == 0)
+	if (ft_strcmp(s, "echo") == 0 || ft_strcmp(s, "cd") == 0 || ft_strcmp(s,
+			"export") == 0 || ft_strcmp(s, "unset") == 0 || ft_strcmp(s,
+			"exit") == 0 || ft_strcmp(s, "env") == 0 || ft_strcmp(s, "pwd") == 0
+		|| ft_strcmp(s, "CD") == 0)
 		return (1);
 	return (0);
 }
@@ -99,7 +99,7 @@ int	checkforfiles(t_shell *shellcmd, t_info *info)
 		}
 		if (info->flag == 1)
 		{
-			if (strncmp(info->sdhere, "<<", 2) == 0)
+			if (ft_strncmp(info->sdhere, "<<", 2) == 0)
 			{
 				free(info->sdhere);
 				return (0);

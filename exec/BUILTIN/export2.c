@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 09:54:22 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/09 02:35:33 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 05:17:06 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	joining(char *s, t_data **data, int *check)
 	str = bringaftertossawi(s);
 	while (tmp)
 	{
-		if (strncmp(tmp->content, s, *check) == 0
+		if (ft_strncmp(tmp->content, s, *check) == 0
 			&& (tmp->content[*check] == '=' || tmp->content[*check] == '\0'))
 		{
 			if (!checktossawi(tmp->content))

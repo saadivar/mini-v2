@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 09:24:17 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/09 20:37:41 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 05:17:06 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	calculheredocs(t_shell *shell)
 		i = 0;
 		while (shell->files[i])
 		{
-			if (strncmp(shell->files[i], "<<", 2) == 0)
+			if (ft_strncmp(shell->files[i], "<<", 2) == 0)
 				count++;
 			i++;
 		}

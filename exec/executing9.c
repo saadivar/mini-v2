@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 09:24:19 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/11 04:49:54 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 03:33:42 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sighandle(int sig)
 {
 	(void)sig;
 	g_globe.exit_status = 1;
-	write(1, "\n", 1);
+	write(2, "\n", 1);
 	rl_replace_line("", 0);
 	rl_on_new_line();
 	rl_redisplay();

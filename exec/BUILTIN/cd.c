@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 00:39:00 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/09 22:47:02 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 05:20:01 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int	ft_cd(t_shell *p, t_data **data)
 {
 	char	*oldpwd;
 
-	if (strcmp(p->cmd[0], "CD") == 0)
+	if (ft_strcmp(p->cmd[0], "CD") == 0)
 		return (0);
 	if (p->cmd[1] == NULL)
 		return (noarg(p, data));
@@ -67,8 +67,7 @@ int	ft_cd(t_shell *p, t_data **data)
 			if (!oldpwd)
 				ft_putstr_fd("cd: error retrieving current directory: \
 					getcwd: cannot access\
-						parent directories: No such file or directory\n",
-					2);
+					parent directories: No such file or directory\n", 2);
 			else
 				free(oldpwd);
 			return (1);

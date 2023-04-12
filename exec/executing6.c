@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 08:50:35 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/12 01:56:38 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 05:17:06 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	fcs(int *fd, char *s, t_data **env)
 	while (1)
 	{
 		str = readline("> ");
-		if (!str || strcmp(str, s) == 0)
+		if (!str || ft_strcmp(str, s) == 0)
 		{
 			g_globe.exit_status = 0;
 			break ;

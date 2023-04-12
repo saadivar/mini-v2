@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 07:50:31 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/09 22:41:30 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 05:17:06 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*getmyenv(char *s, t_data **env)
 	str = ft_calloc(1, 1);
 	while (tmp)
 	{
-		if (strncmp(s, tmp->content, ft_strlen(s)) == 0)
+		if (ft_strncmp(s, tmp->content, ft_strlen(s)) == 0)
 		{
 			str = ft_strjoin10(str, tmp->content + ft_strlen(s) + 1);
 			break ;
@@ -83,14 +83,14 @@ void	chengingoldpwd(char *s, t_data **data)
 	tmp = *data;
 	while (tmp)
 	{
-		if (strncmp(tmp->content, "OLDPWD", 6) == 0)
+		if (ft_strncmp(tmp->content, "OLDPWD", 6) == 0)
 		{
 			s1 = tmp->content;
 			tmp->content = ft_strjoin("OLDPWD=", s);
 			free(s1);
 			count++;
 		}
-		else if (strncmp(tmp->content, "PWD=", 4) == 0)
+		else if (ft_strncmp(tmp->content, "PWD=", 4) == 0)
 		{
 			tmp->content = helper(tmp->content);
 			count++;

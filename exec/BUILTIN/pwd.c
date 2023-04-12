@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 00:26:09 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/07 23:38:08 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 05:15:08 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ char	*getpwd(void)
 	tmp = getcwd(s, sizeof(s));
 	if (tmp)
 	{
-		buff = strdup(tmp);
+		buff = ft_strdup(tmp);
 		return (buff);
 	}
 	else
