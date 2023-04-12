@@ -14,7 +14,7 @@ SRC =	minishell.c \
 		parse/Libft/ft_lstadd_front.c \
 		parse/Libft/ft_lstadd_back.c parse/Libft/ft_strtrim.c\
 		parse/splitpath.c \
-		parse/convert_2d_1d.c \
+		parse/convert_2d_1d.c parse/helpers2.c \
 		parse/expander.c parse/expander_help.c parse/expander_help1.c\
 		parse/setting_up_input.c \
 		parse/split_cmds.c parse/split_cmds_help.c exec/executing.c exec/executing1.c  exec/executing2.c  exec/executing3.c exec/executing4.c exec/executing5.c exec/executing6.c exec/executing7.c exec/executing8.c exec/executing9.c exec/executing10.c exec/executing11.c\
@@ -29,7 +29,7 @@ RM = rm -f
 all : $(NAME)
 
 $(NAME) : $(OBJS) 
-		$(CC) $(CFLAGS) -fsanitize=address -fsanitize=undefined -fsanitize=null -g3 -lreadline  -lreadline -L/Users/sel-biyy/goinfre/homebrew/opt/readline/lib -I/Users/sel-biyy/goinfre/homebrew/opt/readline/include  $(CFLAGS) $(OBJS) -o $(NAME)
+		$(CC) $(CFLAGS) -lreadline  -lreadline -L/Users/sel-biyy/goinfre/homebrew/opt/readline/lib -I/Users/sel-biyy/goinfre/homebrew/opt/readline/include  $(CFLAGS) $(OBJS) -o $(NAME)
 clean :
 	$(RM) $(OBJS)
 

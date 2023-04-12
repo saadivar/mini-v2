@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 18:02:04 by smounafi          #+#    #+#             */
-/*   Updated: 2023/04/11 23:56:33 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 02:50:04 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	parsing(t_info *info, t_var *var, t_shell **shellcmds, t_data *envp)
 			envp);
 	*shellcmds = split_to_stock_cmd(info->splited_string,
 			shellcmds);
-	clean_quotes(*shellcmds, *var);
+	clean_quotes(*shellcmds);
 	free(info->splited_str);
 	if (info->splited_string)
 		free_2d_array(info->splited_string);

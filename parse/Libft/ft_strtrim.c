@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 03:52:44 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/12 00:00:56 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 02:48:51 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,26 +54,27 @@ void	skip_both_quotes(char s1, t_var *var)
 	}
 }
 
-char	*ft_strtrim(char *s1, t_var *var)
+char	*ft_strtrim(char *s1)
 {
 	char	*returned_str;
+	t_var	var;
 
 	returned_str = NULL;
-	init_stuff(var);
+	init_stuff(&var);
 	if (!s1)
 		return (NULL);
-	while (s1[var->i])
+	while (s1[var.i])
 	{
-		while (s1[var->i] && s1[var->i] != 34 && s1[var->i] != 39)
+		while (s1[var.i] && s1[var.i] != 34 && s1[var.i] != 39)
 		{
-			var->len++;
-			var->i++;
+			var.len++;
+			var.i++;
 		}
-		skip_both_quotes(s1[var->i], var);
-		var->i++;
+		skip_both_quotes(s1[var.i], &var);
+		var.i++;
 	}
-	returned_str = malloc(var->len + 1);
-	returned_str[var->len] = '\0';
-	returned_str = ft_fill_trimmed(returned_str, s1, var);
+	returned_str = malloc(var.len + 1);
+	returned_str[var.len] = '\0';
+	returned_str = ft_fill_trimmed(returned_str, s1, &var);
 	return (returned_str);
 }

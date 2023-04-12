@@ -6,26 +6,11 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 07:09:31 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/12 00:01:15 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 02:59:24 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
-
-void	init_stuff(t_var *var)
-{
-	var->x = 0;
-	var->y = 0;
-	var->i = 0;
-	var->j = 0;
-	var->k = 0;
-	var->m = 0;
-	var->n = 0;
-	var->l = 0;
-	var->index = 0;
-	var->len = 0;
-	var->counter = 0;
-}
 
 int	contain_quotes(char *str, char c)
 {
@@ -70,33 +55,34 @@ int	contain_redir(char *str)
 	return (1);
 }
 
-void	clean_quotes(t_shell *shellcmds, t_var var)
+void	trim_cmds(t_shell **shellcmds, int i)
+{
+	char	*tmp;
+
+	tmp = (*shellcmds)->cmd[i];
+	(*shellcmds)->cmd[i] = ft_strtrim((*shellcmds)->cmd[i]);
+	free(tmp);
+}
+
+void	clean_quotes(t_shell *shellcmds)
 {
 	int		i;
 	char	*tmp;
 
-	i = 0;
 	while (shellcmds)
 	{
-		i = 0;
-		while (shellcmds->cmd[i])
-		{
+		i = -1;
+		while (shellcmds->cmd[++i])
 			if ((contain_quotes(shellcmds->cmd[i], 34) == 0
 					|| containn_quotes(shellcmds->cmd[i], 39) == 0))
-			{
-				tmp = shellcmds->cmd[i];
-				shellcmds->cmd[i] = ft_strtrim(shellcmds->cmd[i], &var);
-				free(tmp);
-			}
-			i++;
-		}
+				trim_cmds(&shellcmds, i);
 		i = 0;
 		while (shellcmds->files[i])
 		{
 			if (contain_redir(shellcmds->files[i]) == 0)
 			{
 				tmp = shellcmds->files[i];
-				shellcmds->files[i] = ft_strtrim(shellcmds->files[i], &var);
+				shellcmds->files[i] = ft_strtrim(shellcmds->files[i]);
 				free(tmp);
 			}
 			i++;

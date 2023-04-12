@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 02:15:53 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/11 07:18:55 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 03:00:54 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,7 +209,7 @@ void				init_stuff(t_var *var);
 int					contain_quotes(char *str, char c);
 int					containn_quotes(char *str, char c);
 int					contain_redir(char *str);
-void				clean_quotes(t_shell *shellcmds, t_var var);
+void				clean_quotes(t_shell *shellcmds);
 int					ft_strlen(const char *s);
 int					ft_isdigit(int c);
 int					char_pos(char *str);
@@ -248,7 +248,7 @@ char				**ft_splitpath(char const *s, char c);
 int					ft_lstsize(t_data *lst);
 char				**ft_split(char *dst);
 void				init_stuff(t_var *var);
-char				*ft_strtrim(char *s1, t_var *var);
+char				*ft_strtrim(char *s1);
 void				trim_cmd(t_shell **shellcmds);
 void				exec1cmd(t_shell *shellcmds, t_data **envp, t_info *info);
 void				execfirst(t_shell *shellcmds, t_data **envp, t_info *info);
@@ -301,4 +301,6 @@ void				child(t_shell *shellcmd, t_data **envp, t_info *info);
 void				papa(void);
 void				execvedyale1(t_shell *shellcmd, t_data **envp,
 						t_info *info);
+void				init_stuff(t_var *var);
+void				usnet12(char **tmp, char **tmp1, char **str);
 #endif

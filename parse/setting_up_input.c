@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:33:58 by smounafi          #+#    #+#             */
-/*   Updated: 2023/04/11 23:40:36 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 02:49:18 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,10 +55,20 @@ void	hel_set_input1(char *input, char *str, t_var *var)
 	var->j++;
 }
 
+void	skipper(char *str, char *input, t_var *var)
+{
+	char	c;
+
+	c = str[var->i];
+	input[var->j++] = str[var->i++];
+	while (str[var->i] != c)
+		input[var->j++] = str[var->i++];
+	input[var->j++] = str[var->i++];
+}
+
 char	*set_up_input(char *str, t_var *var)
 {
 	char	*input;
-	char	c;
 	int		counter;
 
 	counter = count_spacial_characters(str, var) * 2;
@@ -68,13 +78,7 @@ char	*set_up_input(char *str, t_var *var)
 	while (var->j < var->len + counter && str[var->i])
 	{
 		if (str[var->i] == 34 || str[var->i] == 39)
-		{
-			c = str[var->i];
-			input[var->j++] = str[var->i++];
-			while (str[var->i] != c)
-				input[var->j++] = str[var->i++];
-			input[var->j++] = str[var->i++];
-		}
+			skipper(str, input, var);
 		else if ((str[var->i] == '<' && str[var->i + 1] == '<')
 			|| (str[var->i] == '>' && str[var->i + 1] == '>'))
 			hel_set_input(input, str, var);

@@ -6,43 +6,18 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 22:40:37 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/11 07:18:13 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 03:00:27 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../minishell.h"
 
-void	convert(t_data **data, char **str)
+void	usnet12(char **tmp, char **tmp1, char **str)
 {
-	int		i;
-	char	*tmp;
-	char	*tmp1;
-
-	i = 0;
-	if (!str[0])
-	{
-		tmp1 = getpwd();
-		tmp = ft_strjoin("PWD=", tmp1);
-		ft_lstadd_back(data, ft_lstnew(tmp));
-		(free(tmp), free(tmp1));
-		ft_lstadd_back(data, ft_lstnew("OLDPWD"));
-		ft_lstadd_back(data, ft_lstnew("SHLVL=1"));
-	}
-	else
-	{
-		while (str[i])
-		{
-			if (ft_strncmp(str[i], "SHLVL=", 6) == 0)
-			{
-				tmp = bringbeforetossawi(str[i]);
-				tmp1 = add_to_shlv(str[i]);
-				str[i] = ft_strjoin1(tmp, tmp1);
-				free(tmp1);
-			}
-			ft_lstadd_back(data, ft_lstnew(str[i]));
-			i++;
-		}
-	}
+	*tmp = bringbeforetossawi(*str);
+	*tmp1 = add_to_shlv(*str);
+	*str = ft_strjoin1(*tmp, *tmp1);
+	free(*tmp1);
 }
 
 void	ft_list_remove_if(t_data **begin_list, char *data_ref)
