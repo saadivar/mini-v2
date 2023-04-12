@@ -1,5 +1,5 @@
 NAME = minishell
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror  #-fsanitize=address -g3
 CC = cc 
 
 SRC =	minishell.c \
@@ -29,7 +29,7 @@ RM = rm -f
 all : $(NAME)
 
 $(NAME) : $(OBJS) 
-		$(CC) $(CFLAGS) -fsanitize=address -lreadline  -lreadline -L/Users/sel-biyy/goinfre/homebrew/opt/readline/lib -I/Users/sel-biyy/goinfre/homebrew/opt/readline/include  $(CFLAGS) $(OBJS) -o $(NAME)
+		$(CC) $(CFLAGS) -lreadline  -lreadline -L/Users/sel-biyy/goinfre/homebrew/opt/readline/lib -I/Users/sel-biyy/goinfre/homebrew/opt/readline/include  $(CFLAGS) $(OBJS) -o $(NAME)
 clean :
 	$(RM) $(OBJS)
 

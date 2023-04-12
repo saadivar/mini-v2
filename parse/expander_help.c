@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 07:21:47 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/09 07:34:12 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 21:14:58 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ int	check_var(char *env, char *word, int i)
 	while (word[i])
 	{
 		i = find_dollar_if_exist(word, i);
-		while (word[i + 1] == '$')
+		while (word[i] && word[i + 1] == '$')
 			i++;
 		a = -1;
 		while (env[++a] != '=' && word[i] && env[a] == word[i + 1])
