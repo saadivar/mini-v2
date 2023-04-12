@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/08 09:24:23 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/11 04:50:56 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 01:00:22 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	helperwhile(t_shell *cmds, t_info *info, int *np, int i)
 	{
 		if (ft_strncmp(cmds->files[i], "<<", 2) == 0)
 		{
+			printf("haha\n");
 			if (flag > 0)
 			{
 				close(info->herepipes[(*np) - 1][0]);
@@ -70,11 +71,13 @@ void	saving(t_shell *shellcmds, t_info *info)
 
 	np = 0;
 	cmds = shellcmds;
+	
 	while (cmds)
 	{
 		i = 0;
 		if (cmds->files[i])
 		{
+			printf("hah\n");
 			helperwhile(shellcmds, info, &np, i);
 			if (np > 0)
 			{

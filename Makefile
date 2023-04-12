@@ -29,7 +29,7 @@ RM = rm -f
 all : $(NAME)
 
 $(NAME) : $(OBJS) 
-		$(CC) $(CFLAGS) -lreadline  -lreadline -L/Users/sel-biyy/goinfre/homebrew/opt/readline/lib -I/Users/sel-biyy/goinfre/homebrew/opt/readline/include  $(CFLAGS) $(OBJS) -o $(NAME)
+		$(CC) $(CFLAGS) -fsanitize=address -fsanitize=undefined -fsanitize=null -g3 -lreadline  -lreadline -L/Users/sel-biyy/goinfre/homebrew/opt/readline/lib -I/Users/sel-biyy/goinfre/homebrew/opt/readline/include  $(CFLAGS) $(OBJS) -o $(NAME)
 clean :
 	$(RM) $(OBJS)
 

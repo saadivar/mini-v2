@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 12:33:58 by smounafi          #+#    #+#             */
-/*   Updated: 2023/04/11 07:21:41 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/11 23:40:36 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	hel_set_input1(char *input, char *str, t_var *var)
 char	*set_up_input(char *str, t_var *var)
 {
 	char	*input;
+	char	c;
 	int		counter;
 
 	counter = count_spacial_characters(str, var) * 2;
@@ -66,8 +67,15 @@ char	*set_up_input(char *str, t_var *var)
 	input = malloc(var->len + counter + 1);
 	while (var->j < var->len + counter && str[var->i])
 	{
-		//forfix skipping
-		if ((str[var->i] == '<' && str[var->i + 1] == '<')
+		if (str[var->i] == 34 || str[var->i] == 39)
+		{
+			c = str[var->i];
+			input[var->j++] = str[var->i++];
+			while (str[var->i] != c)
+				input[var->j++] = str[var->i++];
+			input[var->j++] = str[var->i++];
+		}
+		else if ((str[var->i] == '<' && str[var->i + 1] == '<')
 			|| (str[var->i] == '>' && str[var->i + 1] == '>'))
 			hel_set_input(input, str, var);
 		else if ((str[var->i] == '<' || str[var->i] == '>'

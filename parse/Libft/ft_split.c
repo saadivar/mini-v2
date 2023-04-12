@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 03:53:49 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/09 03:54:24 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 00:00:12 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int	ft_count_word(char *str, t_var *var)
 char	*fill_word(char *str, t_var *var)
 {
 	char	*s1;
+	char	c;
 
 	init_stuff(var);
 	while (str[var->j] && str[var->j] != ' ' && str[var->j] != '\t'
@@ -47,8 +48,9 @@ char	*fill_word(char *str, t_var *var)
 	{
 		if (str[var->j] == 34 || str[var->j] == 39)
 		{
+			c = str[var->j];
 			var->j++;
-			while (str[var->j] && (str[var->j] != 34 && str[var->j] != 39))
+			while (str[var->j] && str[var->j] != c)
 				var->j++;
 		}
 		var->j++;

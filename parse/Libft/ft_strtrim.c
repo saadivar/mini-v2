@@ -6,7 +6,7 @@
 /*   By: sel-biyy <sel-biyy@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/09 03:52:44 by sel-biyy          #+#    #+#             */
-/*   Updated: 2023/04/11 05:58:17 by sel-biyy         ###   ########.fr       */
+/*   Updated: 2023/04/12 00:00:56 by sel-biyy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ char	*ft_strtrim(char *s1, t_var *var)
 {
 	char	*returned_str;
 
+	returned_str = NULL;
 	init_stuff(var);
 	if (!s1)
 		return (NULL);
